@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 import { DARK_COLOR } from '../../utils/colors'
 import border from '../../utils/border'
 
