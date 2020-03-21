@@ -20,7 +20,7 @@ const Signup = () => {
       })
       setCurrentRoute(SPLASH)
     } else {
-      setError('Must have at least two letters')
+      setError('Must have at least three letters')
     }
   }
 
