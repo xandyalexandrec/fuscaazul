@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Context from '../../utils/context'
 import Countdown from '../../components/Countdown'
+import { GAME } from '../../router'
 import { StyledWrapper } from './styled'
 
-function Signup() {
+function Splash() {
+  const { setCurrentRoute } = useContext(Context)
+  const handleFinish = () => {
+    setCurrentRoute(GAME)
+  }
   return (
     <StyledWrapper>
-      <Countdown />
+      <Countdown handleFinish={handleFinish} />
     </StyledWrapper>
   )
 }
 
-export default Signup
+export default Splash
