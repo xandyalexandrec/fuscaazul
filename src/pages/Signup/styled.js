@@ -19,6 +19,7 @@ font-size: 2.2rem;
   margin-top: 3rem;
   margin-bottom: 0.5rem;
 `
+
 export const StyledTitleBigger = styled.h1`
   font-size: 2.45rem;
   margin-bottom: 3rem;
@@ -38,4 +39,9 @@ export const StyledCar = styled.img`
       transform: translate3d(0, 0, 0);
     }
   }
+`
+
+export const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
 `

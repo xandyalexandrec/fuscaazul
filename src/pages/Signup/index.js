@@ -5,15 +5,17 @@ import Input from '../../components/Input'
 import Error from '../../components/Error'
 import Button from '../../components/Button'
 import Car from '../../assets/images/car.png';
-import { StyledWrapper, StyledHeader, StyledTitle, StyledTitleBigger, StyledCar } from './styled'
+import { StyledWrapper, StyledHeader, StyledTitle, StyledTitleBigger, StyledForm, StyledCar } from './styled'
 
 const Signup = () => {
   const { player, setPlayer, setCurrentRoute } = useContext(Context)
   const [name, setName] = useState(player.name)
   const [error, setError] = useState(null)
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
     if (name && name.length > 2) {
+      console.log('passou')
       setPlayer({
         ...player,
         name: name
@@ -31,14 +33,16 @@ const Signup = () => {
         <StyledTitle>FUSCA AZUL</StyledTitle>
         <StyledTitleBigger>CHALLENGE</StyledTitleBigger>
       </StyledHeader>
-      <Input
-        label="Your name"
-        value={name}
-        onChange={e => setName(e.target.value)}
-        focus
-      />
-      {error && <Error>{error}</Error>}
-      <Button onClick={handleSubmit}>Start game</Button>
+      <StyledForm onSubmit={handleSubmit}>
+        <Input
+          label="Your name"
+          value={name}
+          onChange={e => setName(e.target.value)}
+          focus
+        />
+        {error && <Error>{error}</Error>}
+        <Button type="submit">Start game</Button>
+      </StyledForm>
     </StyledWrapper>
   )
 }
