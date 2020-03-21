@@ -4,7 +4,7 @@ const useCountdown = ({ initialValue = 3, handleFinish = () => {} } = {}) => {
   const [counter, setCounter] = useState(initialValue)
 
   useEffect(() => {
-    if (counter > 1) {
+    if (counter > 0) {
       setTimeout(() => setCounter(counter - 1), 1000)
     } else {
       handleFinish()
