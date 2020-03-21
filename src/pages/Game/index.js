@@ -4,6 +4,9 @@ import useCarPosition from '../../hooks/useCarPosition'
 import useLaps from '../../hooks/useLaps'
 import Scenario from '../../components/Scenario'
 import Car from '../../components/Car'
+import Speed from '../../components/Speed'
+import Duration from '../../components/Duration'
+import Laps from '../../components/Laps'
 import PauseScreen from '../../components/PauseScreen'
 import { StyledWrapper } from './styled'
 
@@ -16,11 +19,9 @@ const Game = () => {
   return (
     <StyledWrapper>
       <Scenario>
-        {speed} km/h
-        <br />
-        {lap} of 10
-        <br />
-        {duration}s
+        <Speed>{speed}</Speed>
+        <Duration>{duration}</Duration>
+        <Laps>{lap}</Laps>
         <Car position={position} turbo={turbo} />
       </Scenario>
       {paused && <PauseScreen handleUnpause={setPaused} />}
