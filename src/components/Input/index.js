@@ -1,13 +1,20 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { StyledWrapper, StyledLabel, StyledInput } from './styled'
 
-function Input({ label, ...rest }) {
-  return (
-    <StyledWrapper>
-      {label && <StyledLabel>{label}</StyledLabel>}
-      <StyledInput {...rest} />
-    </StyledWrapper>
-  )
+const Input = ({ label, ...rest }) => (
+  <StyledWrapper>
+    {label && <StyledLabel>{label}</StyledLabel>}
+    <StyledInput {...rest} />
+  </StyledWrapper>
+)
+
+Input.propTypes = {
+  label: PropTypes.string,
+}
+
+Input.defaultProps = {
+  label: null,
 }
 
 export default Input

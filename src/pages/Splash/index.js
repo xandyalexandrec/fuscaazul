@@ -4,11 +4,12 @@ import Countdown from '../../components/Countdown'
 import { GAME } from '../../router'
 import { StyledWrapper } from './styled'
 
-function Splash() {
+const Splash = () => {
   const { setCurrentRoute } = useContext(Context)
   const handleFinish = () => {
     setCurrentRoute(GAME)
   }
+
   return (
     <StyledWrapper>
       <Countdown handleFinish={handleFinish} />

@@ -7,7 +7,7 @@ import Button from '../../components/Button'
 import Car from '../../assets/images/car.png';
 import { StyledWrapper, StyledHeader, StyledTitle, StyledTitleBigger, StyledCar } from './styled'
 
-function Signup() {
+const Signup = () => {
   const { player, setPlayer, setCurrentRoute } = useContext(Context)
   const [name, setName] = useState(player.name)
   const [error, setError] = useState(null)

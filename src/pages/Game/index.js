@@ -4,7 +4,7 @@ import Scenario from '../../components/Scenario'
 import Car from '../../components/Car'
 import { StyledWrapper } from './styled'
 
-function Game() {
+const Game = () => {
   const [position] = useCarPosition()
   return (
     <StyledWrapper>

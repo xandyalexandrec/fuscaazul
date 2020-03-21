@@ -1,9 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { StyledWrapper, StyledCard, StyledNumber } from './styled'
 import useCountdown from '../../hooks/useCountdown/'
 
-function Countdown({ handleFinish = () => {} }) {
+const Countdown = ({ handleFinish }) => {
   const [counter] = useCountdown({ handleFinish })
+
   return (
     <StyledWrapper>
       <StyledCard>
@@ -11,6 +13,14 @@ function Countdown({ handleFinish = () => {} }) {
       </StyledCard>
     </StyledWrapper>
   )
+}
+
+Countdown.propTypes = {
+  handleFinish: PropTypes.func,
+}
+
+Countdown.defaultProps = {
+  children: () => {},
 }
 
 export default Countdown
