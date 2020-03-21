@@ -9,7 +9,7 @@ const useCountdown = ({ initialValue = 3, handleFinish = () => {} } = {}) => {
     } else {
       handleFinish()
     }
-  }, [counter])
+  }, [counter, handleFinish])
 
   return [
     counter
