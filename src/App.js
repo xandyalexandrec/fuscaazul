@@ -1,14 +1,19 @@
-import React from 'react';
-import Signup from './pages/Signup';
-import Splash from './pages/Splash';
-import Game from './pages/Game';
+import React, { useState } from 'react'
+import Context from './utils/context'
+import Router, { SIGNUP } from './router'
 
 function App() {
+  const { Provider } = Context;
+  const [player, setPlayer] = useState({
+    name: null
+  })
+  const [currentRoute, setCurrentRoute] = useState(SIGNUP)
+
   return (
-    <main>
-      <Game />
-    </main>
-  );
+    <Provider value={{ player, setPlayer, currentRoute, setCurrentRoute }}>
+      <Router />
+    </Provider>
+  )
 }
 
-export default App;
+export default App
