@@ -2,14 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StyledWrapper } from './styled'
 
-const Laps = ({ children }) => (
+const Laps = ({ children, maxLaps }) => (
   <StyledWrapper>
-    {children}/5
+    {children}/{maxLaps}
   </StyledWrapper>
 )
 
 Laps.propTypes = {
   children: PropTypes.number.isRequired,
+  maxLaps: PropTypes.number.isRequired,
 }
 
 export default Laps

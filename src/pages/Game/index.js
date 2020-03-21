@@ -11,8 +11,16 @@ import PauseScreen from '../../components/PauseScreen'
 import { StyledWrapper } from './styled'
 
 const Game = () => {
+  const {
+    lap,
+    speed,
+    paused,
+    setPaused,
+    turbo,
+    duration,
+    maxLaps
+  } = useLaps()
   const [position] = useCarPosition()
-  const {lap, speed, paused, setPaused, turbo, duration} = useLaps()
   useHotkeys('esc', () => setPaused(true))
   useHotkeys('enter', () => setPaused(false))
 
@@ -21,7 +29,7 @@ const Game = () => {
       <Scenario>
         <Speed>{speed}</Speed>
         <Duration>{duration}</Duration>
-        <Laps>{lap}</Laps>
+        <Laps maxLaps={maxLaps}>{lap}</Laps>
         <Car position={position} turbo={turbo} />
       </Scenario>
       {paused && <PauseScreen handleUnpause={setPaused} />}

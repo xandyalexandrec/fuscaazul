@@ -3,6 +3,7 @@ import useTurbo from '../useTurbo'
 
 const LAP_DISTANCE = 500000
 const INITIAL_LAP = 0
+const MAX_LAPS = 5;
 const INITIAL_SPEED = 60
 const INCREASE_SPEED_TURBO = 7
 const INCREASE_MIN_SPEED = -2
@@ -36,6 +37,12 @@ const useLaps = () => {
     }
   }, [duration, paused])
 
+  useEffect(() => {
+    if (lap === MAX_LAPS) {
+      setPaused(true)
+    }
+  }, [lap])
+
   return {
     lap,
     speed,
@@ -43,6 +50,7 @@ const useLaps = () => {
     paused,
     setPaused,
     duration,
+    maxLaps: MAX_LAPS,
   }
 }
 
