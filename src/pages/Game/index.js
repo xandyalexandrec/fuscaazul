@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
+import Context from '../../utils/context'
+import { CONGRATS } from '../../router'
 import useCarPosition from '../../hooks/useCarPosition'
 import useLaps from '../../hooks/useLaps'
 import Scenario from '../../components/Scenario'
@@ -11,6 +13,18 @@ import PauseScreen from '../../components/PauseScreen'
 import { StyledWrapper } from './styled'
 
 const Game = () => {
+  const { player, setPlayer, setCurrentRoute } = useContext(Context)
+  const [position] = useCarPosition()
+
+  const handleFinish = ({ speed, duration }) => {
+    setPlayer({
+      ...player,
+      speed,
+      duration,
+    })
+    setCurrentRoute(CONGRATS)
+  }
+
   const {
     lap,
     speed,
@@ -19,8 +33,8 @@ const Game = () => {
     turbo,
     duration,
     maxLaps
-  } = useLaps()
-  const [position] = useCarPosition()
+  } = useLaps({ handleFinish })
+
   useHotkeys('esc', () => setPaused(true))
   useHotkeys('enter', () => setPaused(false))
 

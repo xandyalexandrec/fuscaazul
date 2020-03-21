@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 import Context from './utils/context'
-import Router, { GAME } from './router'
+import Router, { SIGNUP } from './router'
 import ResetCss from './style/reset'
 import FontsCss from './style/fonts'
 
 function App() {
   const { Provider } = Context;
   const [player, setPlayer] = useState({
-    name: null
+    name: null,
+    duration: null,
+    speed: null,
   })
-  const [currentRoute, setCurrentRoute] = useState(GAME)
+  const [currentRoute, setCurrentRoute] = useState(SIGNUP)
 
   return (
     <Provider value={{ player, setPlayer, currentRoute, setCurrentRoute }}>

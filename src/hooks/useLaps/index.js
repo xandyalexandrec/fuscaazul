@@ -22,7 +22,7 @@ const getRandomNumber = (min, max) => {
   return Math.floor((Math.random() * (max - min) + min))
 }
 
-const useLaps = () => {
+const useLaps = ({ handleFinish }) => {
   const [lap, setLap] = useState(INITIAL_LAP)
   const [speed, setSpeed] = useState(INITIAL_SPEED)
   const [paused, setPaused] = useState(false)
@@ -40,6 +40,10 @@ const useLaps = () => {
   useEffect(() => {
     if (lap === MAX_LAPS) {
       setPaused(true)
+      handleFinish({
+        duration,
+        speed
+      })
     }
   }, [lap])
 
