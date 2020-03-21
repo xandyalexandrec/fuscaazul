@@ -20,7 +20,7 @@ Countdown.propTypes = {
 }
 
 Countdown.defaultProps = {
-  children: () => {},
+  handleFinish: () => {},
 }
 
 export default Countdown
