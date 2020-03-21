@@ -4,8 +4,8 @@ import useTurbo from '../useTurbo'
 const LAP_DISTANCE = 500000
 const INITIAL_LAP = 0
 const INITIAL_SPEED = 60
-const SPEED_INCREASE = 0.5;
-const SPEED_INCRESE_WITH_TURBO = 10
+const SPEED_INCREASE = 1
+const SPEED_INCRESE_WITH_TURBO = 5
 
 const useLaps = () => {
   const [lap, setLap] = useState(INITIAL_LAP)

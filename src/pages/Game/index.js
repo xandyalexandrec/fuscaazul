@@ -20,15 +20,13 @@ const Game = () => {
         <br />
         {duration}s
         <br />
-        {turbo ? 'turbo ativado' : 'turbo desativo'}
-        <br />
         <button
           onClick={() => setPaused(false)}
           disabled={!paused}
         >
           {paused ? 'paused' : 'playing'}
         </button>
-        <Car position={position} />
+        <Car position={position} turbo={turbo} />
       </Scenario>
     </StyledWrapper>
   )

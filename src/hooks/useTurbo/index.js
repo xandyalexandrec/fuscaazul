@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 
-const TURBO_DURATION = 3000
+const TURBO_DURATION = 5000
 const TURBO_RECHARGING_DURATION = 10000
 
 const useTurbo = ({ paused }) => {
