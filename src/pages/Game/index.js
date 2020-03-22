@@ -1,4 +1,4 @@
-import React, { useContext, useCallback, memo } from 'react'
+import React, { useContext, memo } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { Context } from 'components/Context'
 import { CONGRATS } from 'router'
