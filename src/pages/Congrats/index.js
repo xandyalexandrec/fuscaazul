@@ -1,10 +1,10 @@
 import React, { useContext, memo } from 'react'
-import Context from 'utils/context'
+import { Context } from 'components/Context'
 import { StyledWrapper } from './styled'
 
 const Congrats = () => {
-  const { player } = useContext(Context)
-  const { name, duration, speed } = player
+  const { state } = useContext(Context)
+  const { name, duration, speed } = state.player
   return (
     <StyledWrapper>
       <pre>

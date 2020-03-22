@@ -1,14 +1,13 @@
 import React, { useContext } from 'react'
-import Context from 'utils/context'
+import { Context } from 'components/Context'
 import Countdown from 'components/Countdown'
 import { GAME } from 'router'
 import useCountdown from 'hooks/useCountdown/'
 import { StyledWrapper } from './styled'
 
 const Splash = () => {
-  const { setCurrentRoute } = useContext(Context)
-  const handleFinish = () => setCurrentRoute(GAME)
-  const counter = useCountdown({ handleFinish })
+  const { actions } = useContext(Context)
+  const counter = useCountdown({ handleFinish: () => actions.setCurrentRoute(GAME) })
 
   return (
     <StyledWrapper>

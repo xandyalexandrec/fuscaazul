@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Context from './utils/context'
+import { Context } from 'components/Context'
 import Signup from './pages/Signup'
 import Splash from './pages/Splash'
 import Game from './pages/Game'
@@ -9,22 +9,18 @@ export const SIGNUP = 'SIGNUP'
 export const SPLASH = 'SPLASH'
 export const GAME = 'GAME'
 export const CONGRATS = 'CONGRATS'
+export const DEFAULT_ROUTE = SIGNUP
+
+const routes = {
+  SIGNUP: <Signup />,
+  SPLASH: <Splash />,
+  GAME: <Game />,
+  CONGRATS: <Congrats />,
+}
 
 function Router() {
-  const { currentRoute } = useContext(Context);
-
-  switch (currentRoute) {
-    case SIGNUP:
-      return <Signup />
-    case SPLASH:
-      return <Splash />
-    case GAME:
-      return <Game />
-    case CONGRATS:
-      return <Congrats />
-    default:
-      return <Signup />
-  }
+  const { state } = useContext(Context)
+  return routes[state.currentRoute] || routes[DEFAULT_ROUTE]
 }
 
 export default Router

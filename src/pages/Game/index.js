@@ -1,6 +1,6 @@
 import React, { useContext, useCallback, memo } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
-import Context from 'utils/context'
+import { Context } from 'components/Context'
 import { CONGRATS } from 'router'
 import useCarPosition from 'hooks/useCarPosition'
 import Scenario from 'components/Scenario'
@@ -14,17 +14,13 @@ import { StyledWrapper } from './styled'
 import { MAX_LAPS } from './constants'
 
 const Game = () => {
-  const { player, setPlayer, setCurrentRoute } = useContext(Context)
+  const context = useContext(Context)
   const position = useCarPosition()
 
-  const handleFinish = useCallback(({ speed, duration }) => {
-    setPlayer({
-      ...player,
-      speed,
-      duration,
-    })
-    setCurrentRoute(CONGRATS)
-  }, [player])
+  const handleFinish = ({ speed, duration }) => {
+    context.actions.savegame({ speed, duration })
+    context.actions.setCurrentRoute(CONGRATS)
+  }
 
   const {
     state,
