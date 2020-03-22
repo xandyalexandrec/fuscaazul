@@ -1,17 +1,21 @@
 import React, { useContext, memo } from 'react'
 import { Context } from 'components/Context'
-import { StyledWrapper } from './styled'
+import Button from 'components/Button'
+import { StyledWrapper, StyledTitle, StyledDescription, StyledUnderscore } from './styled'
+import Baloon from 'assets/images/baloon.gif'
 
 const Congrats = () => {
-  const { state } = useContext(Context)
+  const { state, actions } = useContext(Context)
   const { name, duration, speed } = state.player
+  const restartGame = () => {
+    actions.reset()
+  }
   return (
     <StyledWrapper>
-      <pre>
-        {name}
-        {duration}
-        {speed}
-      </pre>
+      <img src={Baloon} />
+      <StyledTitle>CONGRATULATIONS!</StyledTitle>
+      <StyledDescription>{name}, you finished the game at <StyledUnderscore>{speed}</StyledUnderscore> km/h in a total of <StyledUnderscore>{duration}</StyledUnderscore> seconds.</StyledDescription>
+      <Button onClick={restartGame}>Restart</Button>
     </StyledWrapper>
   )
 }

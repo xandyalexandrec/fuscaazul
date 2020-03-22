@@ -4,25 +4,24 @@ export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 100%;
   max-width: 600px;
   margin: 0 auto;
   padding: 1.5rem;
 `
 
-export const StyledHeader = styled.header`
-  text-align: center;
-`
-
 export const StyledTitle = styled.h1`
   font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-`
-export const StyledTitleBigger = styled.h1`
-  font-size: 2.45rem;
+  margin: 1.5rem 0;
 `
 
-export const StyledCar = styled.img`
-  margin: 4rem 0;
-  width: 40vh;
+export const StyledDescription = styled.p`
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  margin-bottom: 1.5rem;
+`
+
+export const StyledUnderscore = styled.span`
+  text-decoration: underline;
 `

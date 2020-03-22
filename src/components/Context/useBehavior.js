@@ -13,6 +13,7 @@ const initialState = {
 const SET_CURRENT_ROUTE = 'SET_CURRENT_ROUTE'
 const SIGNUP = 'SIGNUP'
 const SAVEGAME = 'SAVEGAME'
+const RESET = 'RESET'
 
 const reducer = (state, { type, payload }) => {
   const actionTypes = {
@@ -26,6 +27,7 @@ const reducer = (state, { type, payload }) => {
       duration: payload.duration,
       speed: payload.speed,
     }}),
+    [RESET]: () => ({ ...initialState }),
   };
 
   const action = actionTypes[type];
@@ -39,6 +41,7 @@ export default () => {
     setCurrentRoute: useCallback((route) => dispatch({ type: SET_CURRENT_ROUTE, payload: route }), [dispatch]),
     signup: useCallback((name) => dispatch({ type: SIGNUP, payload: name }), [dispatch]),
     savegame: useCallback(({ duration, speed }) => dispatch({ type: SAVEGAME, payload: { duration, speed } }), [dispatch]),
+    reset: useCallback(() => dispatch({ type: RESET }), [dispatch]),
   }
 
   return { state, actions }
