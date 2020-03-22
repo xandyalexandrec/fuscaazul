@@ -40,7 +40,7 @@ const useLaps = ({ handleFinish }) => {
         clearTimeout(timeoutDuration)
       }
     }
-  }, [duration, lap, paused])
+  }, [duration, paused])
 
   useEffect(() => {
     if (lap === MAX_LAPS) {
