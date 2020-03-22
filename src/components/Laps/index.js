@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import { StyledWrapper } from './styled'
 
-const Laps = ({ children, maxLaps }) => (
+const Laps = ({ currentLap, maxLaps }) => (
   <StyledWrapper>
-    {children}/{maxLaps}
+    {currentLap}/{maxLaps}
   </StyledWrapper>
 )
 
 Laps.propTypes = {
-  children: PropTypes.number.isRequired,
+  currentLap: PropTypes.number.isRequired,
   maxLaps: PropTypes.number.isRequired,
 }
 
-export default Laps
+export default memo(Laps)

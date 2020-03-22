@@ -19,9 +19,7 @@ const useTurbo = ({ paused }) => {
     }
   }
 
-  return [
-    turbo
-  ]
+  return turbo
 }
 
 export default useTurbo

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import { StyledWrapper, StyledLabel, StyledInput } from './styled'
 
@@ -17,4 +17,4 @@ Input.defaultProps = {
   label: null,
 }
 
-export default Input
+export default memo(Input)

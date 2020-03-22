@@ -14,9 +14,7 @@ const useCarPosition = ({ initialPosition = 1 } = {}) => {
   useHotkeys('left', () => setPosition(prevPosition => prevPosition > LEFT_POSITION ? prevPosition - 1 : prevPosition))
   useHotkeys('right', () => setPosition(prevPosition => prevPosition < RIGHT_POSITION ? prevPosition + 1 : prevPosition))
 
-  return [
-    position
-  ]
+  return position
 }
 
 export default useCarPosition

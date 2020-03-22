@@ -15,7 +15,6 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (name && name.length > 2) {
-      console.log('passou')
       setPlayer({
         ...player,
         name: name

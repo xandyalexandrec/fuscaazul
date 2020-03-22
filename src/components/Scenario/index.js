@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import Background from '../../assets/images/background.gif'
 import { StyledWrapper, StyledBackground, StyledContent } from './styled'
@@ -13,11 +13,7 @@ const Scenario = ({ children }) => (
 )
 
 Scenario.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 }
 
-Scenario.defaultProps = {
-  children: undefined,
-}
-
-export default Scenario
+export default memo(Scenario)

@@ -1,15 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { StyledWrapper } from './styled'
+import styled from 'styled-components'
 
-const Duration = ({ children }) => (
-  <StyledWrapper>
-    {children}
-  </StyledWrapper>
-)
-
-Duration.propTypes = {
-  children: PropTypes.number.isRequired,
+export default styled.div`
+  position: absolute;
+  top: 10rem;
+  right: 0.8rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 3px 3px 0 black, -2px -2px 0 black;
+  &:after {
+    content: 's';
+    margin-left: 0.5rem;
+    font-size: 1rem;
+  }
 }
-
-export default Duration
+`

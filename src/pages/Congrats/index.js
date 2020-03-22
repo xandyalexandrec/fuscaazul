@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, memo } from 'react'
 import Context from '../../utils/context'
 import { StyledWrapper } from './styled'
 
@@ -7,14 +7,13 @@ const Congrats = () => {
   const { name, duration, speed } = player
   return (
     <StyledWrapper>
-      {name}
-      <br />
-      {duration}
-      <br />
-      {speed}
-
+      <pre>
+        {name}
+        {duration}
+        {speed}
+      </pre>
     </StyledWrapper>
   )
 }
 
-export default Congrats
+export default memo(Congrats)

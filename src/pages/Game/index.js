@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, memo } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import Context from '../../utils/context'
 import { CONGRATS } from '../../router'
@@ -14,7 +14,7 @@ import { StyledWrapper } from './styled'
 
 const Game = () => {
   const { player, setPlayer, setCurrentRoute } = useContext(Context)
-  const [position] = useCarPosition()
+  const position = useCarPosition()
 
   const handleFinish = ({ speed, duration }) => {
     setPlayer({
@@ -43,12 +43,12 @@ const Game = () => {
       <Scenario>
         <Speed>{speed}</Speed>
         <Duration>{duration}</Duration>
-        <Laps maxLaps={maxLaps}>{lap}</Laps>
+        <Laps currentLap={lap} maxLaps={maxLaps} />
         <Car position={position} turbo={turbo} />
       </Scenario>
-      {paused && <PauseScreen handleUnpause={setPaused} />}
+      {paused && <PauseScreen handleUnpause={() => setPaused(false)} />}
     </StyledWrapper>
   )
 }
 
-export default Game
+export default memo(Game)

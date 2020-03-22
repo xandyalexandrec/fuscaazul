@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import useTurbo from '../useTurbo'
 
-const LAP_DISTANCE = 500000
+const LAP_DISTANCE = 100000
 const INITIAL_LAP = 0
 const MAX_LAPS = 5;
 const INITIAL_SPEED = 60
@@ -27,15 +27,20 @@ const useLaps = ({ handleFinish }) => {
   const [speed, setSpeed] = useState(INITIAL_SPEED)
   const [paused, setPaused] = useState(false)
   const [duration, setDuration] = useState(0)
-  const [turbo] = useTurbo({ paused })
+  const turbo = useTurbo({ paused })
 
   useEffect(() => {
     if (!paused) {
-      setTimeout(() => setSpeed(calculateSpeed({ speed, turbo })), 1000)
-      setTimeout(() => setLap(lap + 1), LAP_DISTANCE / speed)
-      setTimeout(() => setDuration(duration + 1), 1000)
+      const timeoutSpeed = setTimeout(() => setSpeed(calculateSpeed({ speed, turbo })), 1000)
+      const timeoutLap = setTimeout(() => setLap(lap + 1), LAP_DISTANCE / speed)
+      const timeoutDuration = setTimeout(() => setDuration(duration + 1), 1000)
+      return () => {
+        clearTimeout(timeoutSpeed)
+        clearTimeout(timeoutLap)
+        clearTimeout(timeoutDuration)
+      }
     }
-  }, [duration, paused])
+  }, [duration, lap, paused])
 
   useEffect(() => {
     if (lap === MAX_LAPS) {

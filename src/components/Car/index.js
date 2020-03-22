@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import CarImage from '../../assets/images/car.png'
 import FireImage from '../../assets/images/fire.gif'
@@ -19,4 +19,4 @@ Car.propTypes = {
   turbo: PropTypes.bool.isRequired,
 }
 
-export default Car
+export default memo(Car)

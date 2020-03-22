@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import { StyledWrapper, StyledSpeed, StyledHelper } from './styled'
 
@@ -13,4 +13,4 @@ Speed.propTypes = {
   children: PropTypes.number.isRequired,
 }
 
-export default Speed
+export default memo(Speed)
