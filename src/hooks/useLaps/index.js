@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react'
 import useTurbo from '../useTurbo'
 
-const LAP_DISTANCE = 100000
+const LAP_DISTANCE = 1000
 const INITIAL_LAP = 0
 const MAX_LAPS = 5;
 const INITIAL_SPEED = 60
 const INCREASE_SPEED_TURBO = 7
 const INCREASE_MIN_SPEED = -2
-const INCREASE_MAX_SPEED = 4
+const INCREASE_MAX_SPEED = 3
 
 const calculateSpeed = ({ speed, turbo }) => {
   // If turbo is active increase speed by 7
-  if(turbo) {
+  if (turbo) {
     return speed + INCREASE_SPEED_TURBO
   }
-  // Without turbo it increase speed between -2 and 4
+  // Without turbo it increase velocity between min and max speed increase
   return speed + getRandomNumber(INCREASE_MIN_SPEED, INCREASE_MAX_SPEED)
 }
 
@@ -27,20 +27,24 @@ const useLaps = ({ handleFinish }) => {
   const [speed, setSpeed] = useState(INITIAL_SPEED)
   const [paused, setPaused] = useState(false)
   const [duration, setDuration] = useState(0)
+  const [distance, setDistance] = useState(0)
   const turbo = useTurbo({ paused })
 
   useEffect(() => {
     if (!paused) {
-      const timeoutSpeed = setTimeout(() => setSpeed(calculateSpeed({ speed, turbo })), 1000)
-      const timeoutLap = setTimeout(() => setLap(lap + 1), LAP_DISTANCE / speed)
-      const timeoutDuration = setTimeout(() => setDuration(duration + 1), 1000)
-      return () => {
-        clearTimeout(timeoutSpeed)
-        clearTimeout(timeoutLap)
-        clearTimeout(timeoutDuration)
-      }
+      const timeout = setTimeout(() => setDuration(duration + 1), 1000)
+      return () => clearTimeout(timeout)
     }
   }, [duration, paused])
+
+  useEffect(() => {
+    setSpeed(calculateSpeed({ speed, turbo }))
+    setDistance(distance + speed)
+    if (distance >= LAP_DISTANCE) {
+      setLap(lap + 1)
+      setDistance(distance - LAP_DISTANCE)
+    }
+  }, [duration])
 
   useEffect(() => {
     if (lap === MAX_LAPS) {
@@ -55,6 +59,7 @@ const useLaps = ({ handleFinish }) => {
   return {
     lap,
     speed,
+    distance,
     turbo,
     paused,
     setPaused,
