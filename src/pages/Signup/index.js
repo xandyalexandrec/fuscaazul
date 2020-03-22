@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react'
-import Context from '../../utils/context'
-import { SPLASH } from '../../router'
-import Input from '../../components/Input'
-import Error from '../../components/Error'
-import Button from '../../components/Button'
-import Car from '../../assets/images/car.png';
+import Context from 'utils/context'
+import { SPLASH } from 'router'
+import Input from 'components/Input'
+import Error from 'components/Error'
+import Button from 'components/Button'
+import Car from 'assets/images/car.png';
 import { StyledWrapper, StyledHeader, StyledTitle, StyledTitleBigger, StyledForm, StyledCar } from './styled'
 
 const Signup = () => {

@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import CarImage from '../../assets/images/car.png'
-import FireImage from '../../assets/images/fire.gif'
+import CarImage from 'assets/images/car.png'
+import FireImage from 'assets/images/fire.gif'
 import { StyledPosition, StyledTurboPosition, StyledCar, StyledFire } from './styled'
 
 const Car = ({ position, turbo }) => (

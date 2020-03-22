@@ -1,5 +1,5 @@
 import React, { useContext, memo } from 'react'
-import Context from '../../utils/context'
+import Context from 'utils/context'
 import { StyledWrapper } from './styled'
 
 const Congrats = () => {

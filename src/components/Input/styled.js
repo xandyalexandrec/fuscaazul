@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import border from '../../utils/border'
+import border from 'utils/border'
 
 export const StyledLabel = styled.label`
   display: block;

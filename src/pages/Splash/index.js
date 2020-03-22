@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import Context from '../../utils/context'
-import Countdown from '../../components/Countdown'
-import { GAME } from '../../router'
-import useCountdown from '../../hooks/useCountdown/'
+import Context from 'utils/context'
+import Countdown from 'components/Countdown'
+import { GAME } from 'router'
+import useCountdown from 'hooks/useCountdown/'
 import { StyledWrapper } from './styled'
 
 const Splash = () => {

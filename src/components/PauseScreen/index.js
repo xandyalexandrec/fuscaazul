@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import Button from '../Button'
+import Button from 'components/Button'
 import { StyledWrapper } from './styled'
 
 const PauseScreen = ({ handleUnpause }) => (

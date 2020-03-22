@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-import DsDigit from '../assets/fonts/ds-digit-webfont.woff'
-import DsDigit2 from '../assets/fonts/ds-digit-webfont.woff2'
+import DsDigit from 'assets/fonts/ds-digit-webfont.woff'
+import DsDigit2 from 'assets/fonts/ds-digit-webfont.woff2'
 
 export default createGlobalStyle`
   @font-face {

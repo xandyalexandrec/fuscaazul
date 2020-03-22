@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { DARK_COLOR } from '../../utils/colors'
-import border from '../../utils/border'
+import { DARK_COLOR } from 'utils/colors'
+import border from 'utils/border'
 
 export const StyledWrapper = styled.div`
   display: flex;

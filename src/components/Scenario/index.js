@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import Background from '../../assets/images/background.gif'
+import Background from 'assets/images/background.gif'
 import { StyledWrapper, StyledBackground, StyledContent } from './styled'
 
 const Scenario = ({ children }) => (
