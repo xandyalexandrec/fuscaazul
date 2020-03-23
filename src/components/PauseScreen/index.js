@@ -5,7 +5,7 @@ import { StyledWrapper } from './styled'
 
 const PauseScreen = ({ handleUnpause }) => (
   <StyledWrapper>
-    <Button onClick={handleUnpause}>Continue or press enter</Button>
+    <Button onClick={handleUnpause}>Continue or press space</Button>
   </StyledWrapper>
 )
 

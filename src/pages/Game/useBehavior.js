@@ -1,5 +1,4 @@
 import { useReducer, useEffect, useCallback } from 'react'
-import { useHotkeys } from 'react-hotkeys-hook'
 import {
   MAX_LAPS,
   LAP_DISTANCE,
@@ -85,8 +84,6 @@ export default ({ handleFinish }) => {
   const stopTurbo = useCallback(() => dispatch({ type: STOP_TURBO }), [dispatch])
   const stopTurboRecharging = useCallback(() => dispatch({ type: STOP_TURBO_RECHARGING }), [dispatch])
 
-  useHotkeys('t', startTurbo, [startTurbo])
-
   /*
   * After every second we tick the game updating speed, duration, lap and etc
   */
@@ -132,7 +129,7 @@ export default ({ handleFinish }) => {
     return () => { clearTimeout(timeout) }
   }, [stopTurboRecharging, state.turboRecharging])
 
-  return { state, setPaused }
+  return { state, setPaused, startTurbo }
 }
 
 

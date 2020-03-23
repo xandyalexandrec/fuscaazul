@@ -38,7 +38,7 @@ O carro poderá alternar entre três lados da pista (esquerda, meio e direita). 
 
 🚫- **Testes →** boas práticas! Ao enviar uma atualização pro jogo, uma série de testes são executados, garantindo que o ele continua jogável e funcionando como esperado.
 
-## Como jogar
+## Como jogar no Computador
 
 |  teclas   | ação                          |
 |-----------|-------------------------------|
@@ -48,7 +48,16 @@ O carro poderá alternar entre três lados da pista (esquerda, meio e direita). 
 |`⭠`        | move para direita             |
 |`⭢`        | move para esquerda            |
 |`ESC`      | pausa o game                  |
-|`ENTER`    | continua o jogo               |
+|`SPACE`    | continua o jogo               |
+|`T`        | ativa o turbo                 |
+
+## Como jogar no Celular
+
+|  teclas      | ação                          |
+|--------------|-------------------------------|
+|`swipe left ` | move para direita             |
+|`swipe right` | move para esquerda            |
+|`swipe up`    | ativa o turbo                 |
 
 ## Stack
 

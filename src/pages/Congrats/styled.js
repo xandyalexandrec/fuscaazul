@@ -14,6 +14,9 @@ export const StyledWrapper = styled.div`
 export const StyledTitle = styled.h1`
   font-size: 2.2rem;
   margin: 1.5rem 0;
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
 `
 
 export const StyledDescription = styled.p`

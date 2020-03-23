@@ -10132,6 +10132,11 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
+use-gestures@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/use-gestures/-/use-gestures-1.0.2.tgz#10deb64cfc95581021217c1f362be008d303795c"
+  integrity sha512-i8ib/RZYKN3Yd3S2V2yhcfwxGHPwacZb3hxt9n8ZNfRPhYuwnaqavJmSn2H+3doCNofN173JrmcFnFwPN9dQAg==
+
 use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
