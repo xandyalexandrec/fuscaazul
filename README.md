@@ -47,9 +47,9 @@ O carro poderá alternar entre três lados da pista (esquerda, meio e direita). 
 |`D`        | move para a pista da esquerda |
 |`⭠`        | move para direita             |
 |`⭢`        | move para esquerda            |
+|`T`        | ativa o turbo                 |
 |`ESC`      | pausa o game                  |
 |`SPACE`    | continua o jogo               |
-|`T`        | ativa o turbo                 |
 
 ## Como jogar no Celular
 

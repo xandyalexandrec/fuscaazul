@@ -4,6 +4,7 @@ import { SPLASH } from 'router'
 import Input from 'components/Input'
 import Error from 'components/Error'
 import Button from 'components/Button'
+import Controls from 'components/Controls'
 import Car from 'assets/images/car.png';
 import { StyledWrapper, StyledHeader, StyledTitle, StyledTitleBigger, StyledForm, StyledCar } from './styled'
 
@@ -29,6 +30,7 @@ const Signup = () => {
         <StyledTitle>FUSCA AZUL</StyledTitle>
         <StyledTitleBigger>CHALLENGE</StyledTitleBigger>
       </StyledHeader>
+      <Controls />
       <StyledForm onSubmit={handleSubmit}>
         <Input
           label="Your name"
