@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { DANGER_COLOR } from 'utils/colors'
+import { DANGER_COLOR } from 'style/colors'
 
 export default styled.p`
   color: ${DANGER_COLOR};
