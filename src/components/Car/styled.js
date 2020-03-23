@@ -39,10 +39,7 @@ export const StyledFire = styled.img`
   width: 22%;
   bottom: 14%;
   transition: 300ms ease-in-out;
-  ${({ active }) =>
-    active
-    ? `transform: rotate(180deg) scale(1);`
-    : `transform: rotate(180deg) scale(0);`}
+  transform: rotate(180deg) scale(${({ active }) => active ? `1` : `0` });
   ${({ position }) =>
     position === 'left'
     ? `left: 15%;`

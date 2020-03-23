@@ -22,10 +22,7 @@ const Game = () => {
     context.actions.setCurrentRoute(CONGRATS)
   }
 
-  const {
-    position,
-    actions,
-  } = useCarPosition()
+  const carPosition = useCarPosition()
 
   const {
     state,
@@ -33,7 +30,7 @@ const Game = () => {
     startTurbo,
   } = useBehavior({ handleFinish })
 
-  useControls({ positionActions: actions, setPaused, startTurbo, scene })
+  useControls({ scene, setPaused, startTurbo, ...carPosition.actions })
 
   const { speed, duration, lap, turbo, paused } = state
 
@@ -43,7 +40,7 @@ const Game = () => {
         <Speed>{speed}</Speed>
         <Duration>{duration}</Duration>
         <Laps currentLap={lap} maxLaps={MAX_LAPS} />
-        <Car position={position} turbo={turbo} />
+        <Car position={carPosition.state.position} turbo={turbo} />
       </Scenario>
       {paused && <PauseScreen handleUnpause={() => setPaused(false)} />}
     </StyledWrapper>
