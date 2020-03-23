@@ -1,4 +1,5 @@
 import { useReducer, useEffect, useCallback } from 'react'
+import random from 'utils/random'
 import {
   MAX_LAPS,
   LAP_DISTANCE,
@@ -26,12 +27,10 @@ const START_TURBO = 'START_TURBO'
 const STOP_TURBO = 'STOP_TURBO'
 const STOP_TURBO_RECHARGING = 'STOP_TURBO_RECHARGING'
 
-const getRandomNumber = (min, max) => Math.floor((Math.random() * (max - min) + min))
-
 const calculateSpeed = ({ speed, turbo }) =>
   turbo
     ? speed + INCREASE_SPEED_TURBO
-    : speed + getRandomNumber(INCREASE_MIN_SPEED, INCREASE_MAX_SPEED)
+    : speed + random(INCREASE_MIN_SPEED, INCREASE_MAX_SPEED)
 
 const calculateDistanceProgress = ({ distance, speed, lap }) => {
   const distanceIncreased = distance + speed
@@ -131,8 +130,3 @@ export default ({ handleFinish }) => {
 
   return { state, setPaused, startTurbo }
 }
-
-
-
-
-

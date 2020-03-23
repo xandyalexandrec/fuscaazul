@@ -1,5 +1,5 @@
 import { useReducer, useCallback } from 'react'
-import { DEFAULT_ROUTE } from 'router'
+import { DEFAULT_ROUTE, SPLASH } from 'router'
 
 const initialState = {
   player: {
@@ -13,7 +13,7 @@ const initialState = {
 const SET_CURRENT_ROUTE = 'SET_CURRENT_ROUTE'
 const SIGNUP = 'SIGNUP'
 const SAVEGAME = 'SAVEGAME'
-const RESET = 'RESET'
+const RESTART = 'RESTART'
 
 const reducer = (state, { type, payload }) => {
   const actionTypes = {
@@ -27,7 +27,11 @@ const reducer = (state, { type, payload }) => {
       duration: payload.duration,
       speed: payload.speed,
     }}),
-    [RESET]: () => ({ ...initialState }),
+    [RESTART]: () => ({
+      ...initialState,
+      name: state.name,
+      currentRoute: SPLASH,
+    }),
   };
 
   const action = actionTypes[type];
@@ -41,7 +45,7 @@ export default () => {
     setCurrentRoute: useCallback((route) => dispatch({ type: SET_CURRENT_ROUTE, payload: route }), [dispatch]),
     signup: useCallback((name) => dispatch({ type: SIGNUP, payload: name }), [dispatch]),
     savegame: useCallback(({ duration, speed }) => dispatch({ type: SAVEGAME, payload: { duration, speed } }), [dispatch]),
-    reset: useCallback(() => dispatch({ type: RESET }), [dispatch]),
+    restart: useCallback(() => dispatch({ type: RESTART }), [dispatch]),
   }
 
   return { state, actions }

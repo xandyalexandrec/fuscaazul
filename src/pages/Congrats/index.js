@@ -8,7 +8,7 @@ const Congrats = () => {
   const { state, actions } = useContext(Context)
   const { name, duration, speed } = state.player
   const restartGame = () => {
-    actions.reset()
+    actions.restart()
   }
   return (
     <StyledWrapper>

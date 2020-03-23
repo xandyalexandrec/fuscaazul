@@ -12,6 +12,7 @@ const SPACE = 32
 
 const useControls = ({
   scene,
+  paused,
   setPaused,
   startTurbo,
   moveLeftPosition,
@@ -21,15 +22,16 @@ const useControls = ({
   moveRight,
 }) => {
   const keyboardActions = useMemo(() => ({
-    [A]: () => moveLeftPosition(),
-    [S]: () => moveMiddlePosition(),
-    [D]: () => moveRightPosition(),
-    [LEFT]: () => moveLeft(),
-    [RIGHT]: () => moveRight(),
-    [T]: () => startTurbo(),
+    [A]: () => !paused && moveLeftPosition(),
+    [S]: () => !paused && moveMiddlePosition(),
+    [D]: () => !paused && moveRightPosition(),
+    [LEFT]: () => !paused && moveLeft(),
+    [RIGHT]: () => !paused && moveRight(),
+    [T]: () => !paused && startTurbo(),
     [ESC]: () => setPaused(true),
     [SPACE]: () => setPaused(false),
   }), [
+    paused,
     setPaused,
     startTurbo,
     moveLeftPosition,

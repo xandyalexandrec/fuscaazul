@@ -23,12 +23,9 @@ export const StyledCar = styled.img`
   animation: bounceInUp 250ms infinite linear;
   @keyframes bounceInUp {
     from {
-      -webkit-transform: translate3d(0, -2px, 0);
       transform: translate3d(0, -2px, 0);
     }
-
     to {
-      -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
     }
   }
@@ -44,4 +41,11 @@ export const StyledFire = styled.img`
     position === 'left'
     ? `left: 15%;`
     : `right: 18%;`}
+`
+
+export const StyledExplosion = styled.img`
+  position: absolute;
+  width: 175%;
+  left: -50%;
+  top: -80%;
 `
