@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { PRIMARY_COLOR } from 'utils/colors'
+import { PRIMARY_COLOR } from 'style/colors'
 
 export const StyledWrapper = styled.div`
   position: absolute;

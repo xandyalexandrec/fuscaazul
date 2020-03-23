@@ -6,4 +6,10 @@ export default `
   border-image-outset: 2;
   border-style: solid;
   border-width: 4px;
+  @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+    border-image-repeat: space;
+  }
+  @supports (-moz-appearance: meterbar) {
+    border-image-repeat: stretch;
+  }
 `

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { darken } from "polished"
-import { SUCCESS_COLOR } from 'utils/colors'
-import border from 'utils/border'
+import { SUCCESS_COLOR } from 'style/colors'
+import border from 'style/border'
 
 export default styled.button`
   position: relative;
