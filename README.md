@@ -14,7 +14,7 @@ O carro poderá alternar entre três lados da pista (esquerda, meio e direita). 
 
 ✔️ **Pause** **→** ao pressionar ESC (ou outra tecla), o jogo é pausado. ⏸
 
-🚫 **Obstáculos** **→** você tá lá na corrida e repentinamente aparece uma pedra gigante na estrada... O jogo fica bem mais desafiador, não é mesmo? 🤯
+✔️ **Obstáculos** **→** você tá lá na corrida e repentinamente aparece uma pedra gigante na estrada... O jogo fica bem mais desafiador, não é mesmo? 🤯
 
 ✔️ **Turbo** **→** existem momentos onde é necessário acelerar para chegar a tempo. Que tal adicionar uma funcionalidade de turbo? O uso seria limitado, mas o carro iria ganhar muito mais velocidade!
 
@@ -107,9 +107,16 @@ Countdown começando pelo nº 3 para preparação do usuário ao jogo.
 - index.js: render do jogo
 - constants.js: aqui você poderá trocar atributos que mudam a dinâmica do jogo, como velocidade, tempo de turbo e etc.
 - useBehavior.js: responsável por toda a lógica do jogo em relação a velocidade, distância percorrida, uso de turbo.
-- useCarPosition.js: responsável por controlar a posição do carro na pista
+- useCollision.js: responsável por controlar a posição do carro, pedras na pista e verificar colisões
 - useControls.js: resposável pelo controle via teclado e mobile
 - styled.js: styled components no escopo game.
 
 #### Congrats
 Tela de Parabéns com o resultado do jogo.
+
+#### Game Over
+Tela de game over
+
+## Prints
+
+
