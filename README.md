@@ -122,7 +122,7 @@ Tela de game over
 ![Splash](https://user-images.githubusercontent.com/2214768/77361488-2121ae00-6d2e-11ea-8071-a01c1825e89f.png)
 ![Game](https://user-images.githubusercontent.com/2214768/77361495-22eb7180-6d2e-11ea-848d-a84c727de94d.png)
 ![Congrats](https://user-images.githubusercontent.com/2214768/77361512-2bdc4300-6d2e-11ea-8439-b4b11159251c.png)
-![GameOver](https://user-images.githubusercontent.com/2214768/77361514-2d0d7000-6d2e-11ea-8d14-9fa3e69019b5.png)
+![GameOver](https://user-images.githubusercontent.com/2214768/77365616-33ebb100-6d35-11ea-8ddf-7aee809364ee.png)
 
 
 
