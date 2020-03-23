@@ -82,3 +82,34 @@ git clone https://github.com/xandyalexandrec/fuscaazul.git
 yarn
 yarn build
 ```
+
+## Sobre o jogo
+
+Foi utilizado o React com Hooks e StyledComponents para construir o jogo, optei por não utilizar react-router para evitar a exibição do caminho na barra de endereço, além de não ter sido necessário ter toda a estrutura provida pelo react-router.
+
+### Components
+
+Em components, você encontrará em sua maioria componentes de exibição e styled components. As regras de negócio ficaram dentro de pages.
+
+### Context
+
+Já o Context geral da aplicação ficou em components/Context, lá você terá reducer com funções para salvar o jogador, o savegame, resetar o jogo e mudar rotas.
+
+### Pages
+
+#### Signup
+Tela de cadastro de usuário, que ao completar vai para o splash screen.
+
+#### Splash
+Countdow começando pelo nº 3 para preparação do usuário ao jogo.
+
+#### Game (Core do jogo)
+- index.js: render do jogo
+- constants.js: aqui você poderá trocar atributos que mudam a dinâmica do jogo, como velocidade, tempo de turbo e etc.
+- useBehavior.js: responsável por toda a lógica do jogo em relação a velocidade, distância percorrida, uso de turbo.
+- useCarPosition.js: responsável por controlar a posição do carro na pista
+- useControls.js: resposável pelo controle via teclado e mobile
+- styled.js: styled components no escopo game.
+
+#### Congrats
+Tela de Parabéns com o resultado do jogo.
