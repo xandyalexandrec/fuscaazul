@@ -2,10 +2,9 @@ import styled from 'styled-components'
 
 export const StyledPosition = styled.div`
   position: absolute;
-  bottom: 27%;
+  bottom: 30%;
   left: 13%;
   width: 25%;
-  transition: 500ms;
   text-align: center;
   transform: translateX(${({ position }) => position * 90}%);
   @media (max-width: 768px) {
@@ -14,6 +13,14 @@ export const StyledPosition = styled.div`
 `
 export const StyledStone = styled.img`
   width: 50%;
-  transition: 300ms;
-  transform: scale(${({ visible }) => visible ? `1` : `0` });
+  transform-origin: top;
+  ${({ visible }) =>
+  visible
+    ? `
+      transition: 2000ms linear;
+      transform: scale(.9) translateY(100px);
+    `
+    : `
+      transform: scale(0) translateY(-50px);
+    `}
 `

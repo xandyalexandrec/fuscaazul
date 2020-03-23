@@ -12,7 +12,7 @@ import useBehavior from './useBehavior'
 import useCollision from './useCollision'
 import useControls from './useControls'
 import { StyledWrapper } from './styled'
-import { MAX_LAPS } from './constants'
+import { MAX_LAPS, STATUS_STONE_HIDE } from './constants'
 
 const Game = () => {
   const scene = useRef(null)
@@ -33,7 +33,7 @@ const Game = () => {
   const { speed, duration, lap, turbo, paused } = state
 
   const collision = useCollision({ paused, handleGameOver })
-  const { stoneVisible, carPosition, stonePosition, collided } = collision.state
+  const { stoneStatus, carPosition, stonePosition, collided } = collision.state
 
   useControls({ scene, paused, setPaused, startTurbo, ...collision.carActions })
 
@@ -43,7 +43,7 @@ const Game = () => {
         <Speed>{speed}</Speed>
         <Duration>{duration}</Duration>
         <Laps currentLap={lap} maxLaps={MAX_LAPS} />
-        <Stone visible={stoneVisible} position={stonePosition} />
+        <Stone visible={stoneStatus !== STATUS_STONE_HIDE} position={stonePosition} />
         <Car position={carPosition} turbo={turbo} collided={collided} />
       </Scenario>
       {paused && <PauseScreen handleUnpause={() => setPaused(false)} />}

@@ -12,7 +12,7 @@ const Congrats = () => {
     <StyledWrapper>
       <StyledTitleGame>GAME</StyledTitleGame>
       <StyledTitleOver>OVER</StyledTitleOver>
-      <StyledDescription>A rocket exploded your car</StyledDescription>
+      <StyledDescription>A stone exploded your car</StyledDescription>
       <Button onClick={restartGame}>Restart</Button>
     </StyledWrapper>
   )
