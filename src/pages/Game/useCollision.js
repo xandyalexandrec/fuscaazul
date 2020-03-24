@@ -73,13 +73,13 @@ export default ({ paused, handleGameOver }) => {
     if (!paused) {
       switch (state.stoneStatus) {
         case STATUS_STONE_HIDE:
-          timeoutHide = setTimeout(setRandomStone, random(3, 8) * 1000)
+          timeoutHide = setTimeout(setRandomStone, random(2, 6) * 1000)
           break
         case STATUS_STONE_VISIBLE:
           timeoutVisible = setTimeout(setCollidStone, 1000)
           break
         case STATUS_STONE_COLLID:
-          timeoutCollid = setTimeout(hideStone, STONE_HIDE_DELAY)
+          timeoutCollid = setTimeout(hideStone, 1000)
           break
         default:
           new Error('Invalid stone status')

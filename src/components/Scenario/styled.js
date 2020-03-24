@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const StyledWrapper = styled.div`
   position: relative;
+  overflow: hidden;
   @media (max-width: 798px) and (orientation: portrait) {
     background: #40b4f7;
   }

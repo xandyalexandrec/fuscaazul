@@ -8,7 +8,6 @@ export const INCREASE_MAX_SPEED = 3
 export const LEFT_POSITION = 0
 export const MIDDLE_POSITION = 1
 export const RIGHT_POSITION = 2
-export const STONE_HIDE_DELAY = 3000
 export const STATUS_STONE_HIDE = 'HIDE'
 export const STATUS_STONE_VISIBLE = 'STONE_VISIBLE'
 export const STATUS_STONE_COLLID = 'STONE_COLLID'

@@ -17,8 +17,8 @@ export const StyledStone = styled.img`
   ${({ visible }) =>
   visible
     ? `
-      transition: 2000ms linear;
-      transform: scale(.9) translateY(100px);
+      transition: 2500ms linear;
+      transform: scale(.9) translateY(500px);
     `
     : `
       transform: scale(0) translateY(-50px);
