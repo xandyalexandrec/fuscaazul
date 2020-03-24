@@ -34,8 +34,9 @@ const Game = () => {
 
   const collision = useCollision({ paused, handleGameOver })
   const { stoneStatus, carPosition, stonePosition, collided } = collision.state
+  const { moveLeftPosition, moveMiddlePosition, moveRightPosition, moveLeft, moveRight } = collision
 
-  useControls({ scene, paused, setPaused, startTurbo, ...collision.carActions })
+  useControls({ scene, paused, setPaused, startTurbo, moveLeftPosition, moveMiddlePosition, moveRightPosition, moveLeft, moveRight })
 
   return (
     <StyledWrapper ref={scene}>

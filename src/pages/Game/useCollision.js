@@ -46,13 +46,11 @@ const reducer = (state, { type, payload }) => {
 export default ({ paused, handleGameOver }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const carActions = {
-    moveLeftPosition: useCallback(() => dispatch({ type: SET_CAR_POSITION, payload: LEFT_POSITION }), [dispatch]),
-    moveMiddlePosition: useCallback(() => dispatch({ type: SET_CAR_POSITION, payload: MIDDLE_POSITION }), [dispatch]),
-    moveRightPosition: useCallback(() => dispatch({ type: SET_CAR_POSITION, payload: RIGHT_POSITION }), [dispatch]),
-    moveLeft: useCallback(() => dispatch({ type: SET_CAR_POSITION_LEFT }), [dispatch]),
-    moveRight: useCallback(() => dispatch({ type: SET_CAR_POSITION_RIGHT }), [dispatch]),
-  }
+  const moveLeftPosition = useCallback(() => dispatch({ type: SET_CAR_POSITION, payload: LEFT_POSITION }), [dispatch])
+  const moveMiddlePosition = useCallback(() => dispatch({ type: SET_CAR_POSITION, payload: MIDDLE_POSITION }), [dispatch])
+  const moveRightPosition = useCallback(() => dispatch({ type: SET_CAR_POSITION, payload: RIGHT_POSITION }), [dispatch])
+  const moveLeft = useCallback(() => dispatch({ type: SET_CAR_POSITION_LEFT }), [dispatch])
+  const moveRight = useCallback(() => dispatch({ type: SET_CAR_POSITION_RIGHT }), [dispatch])
 
   const setRandomStone = useCallback(() => dispatch({
     type: SET_RANDON_STONE,
@@ -111,5 +109,5 @@ export default ({ paused, handleGameOver }) => {
     }
   }, [state.collided, handleGameOver])
 
-  return { state, carActions }
+  return { state, moveLeftPosition, moveMiddlePosition, moveRightPosition, moveLeft, moveRight }
 }
