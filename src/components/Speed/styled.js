@@ -12,7 +12,6 @@ export const StyledWrapper = styled.div`
   padding: 0.2rem 0.5rem;
   background: #040003;
   color: #e91509;
-}
 `
 export const StyledSpeed = styled.h2`
   position: relative;

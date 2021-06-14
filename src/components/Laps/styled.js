@@ -13,5 +13,4 @@ export const StyledWrapper = styled.div`
     margin-left: 0.5rem;
     font-size: 1rem;
   }
-}
 `
