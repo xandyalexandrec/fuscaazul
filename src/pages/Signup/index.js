@@ -1,42 +1,42 @@
-import React, { useState, useContext } from 'react'
-import { Context } from 'components/Context'
-import { SPLASH } from 'router'
-import Input from 'components/Input'
-import Error from 'components/Error'
+import React, { useState, useContext, useCallback } from 'react'
 import Button from 'components/Button'
+import { Context } from 'components/Context'
 import Controls from 'components/Controls'
+import Error from 'components/Error'
+import Input from 'components/Input'
 import Car from 'assets/images/car.png';
 import { StyledWrapper, StyledHeader, StyledTitle, StyledTitleBigger, StyledForm, StyledCar } from './styled'
 
+const isNameValid = name => name && name.length > 2
+
 const Signup = () => {
-  const { state, actions } = useContext(Context)
+  const { state, actions: { signup } } = useContext(Context)
   const [name, setName] = useState(state.player.name)
   const [error, setError] = useState(null)
 
-  const handleSubmit = (e) => {
+  const handleChange = useCallback(e => setName(e.target.value), [setName])
+
+  const onSubmit = useCallback(e => {
     e.preventDefault()
-    if (name && name.length > 2) {
-      actions.signup(name)
-      actions.setCurrentRoute(SPLASH)
-    } else {
-      setError('Must have at least three letters')
-    }
-  }
+    isNameValid(name)
+      ? signup(name)
+      : setError('Must have at least three letters')
+  }, [signup, name])
 
   return (
     <StyledWrapper>
+      <StyledCar src={Car} />
       <StyledHeader>
-        <StyledCar src={Car} />
         <StyledTitle>FUSCA AZUL</StyledTitle>
         <StyledTitleBigger>CHALLENGE</StyledTitleBigger>
       </StyledHeader>
       <Controls />
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={onSubmit}>
         <Input
           label="Your name"
           value={name}
-          onChange={e => setName(e.target.value)}
-          focus
+          onChange={handleChange}
+          autoFocus
         />
         {error && <Error>{error}</Error>}
         <Button type="submit">Start game</Button>
@@ -45,4 +45,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default React.memo(Signup)

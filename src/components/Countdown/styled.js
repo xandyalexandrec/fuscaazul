@@ -1,19 +1,19 @@
 import styled from 'styled-components'
 import { DARK_COLOR } from 'style/colors'
-import border from 'style/border'
+import Border from 'components/Border'
 
 export const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
 `
-export const StyledCard = styled.div`
+
+export const StyledCard = styled(Border)`
   display: flex;
   align-items: center;
   justify-content: center;
   background: ${DARK_COLOR};
   width: 18rem;
   height: 18rem;
-  ${border}
   animation: scale 1000ms infinite linear;
   @keyframes scale {
     from {

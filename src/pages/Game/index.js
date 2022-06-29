@@ -1,6 +1,5 @@
 import React, { useContext, useRef, memo } from 'react'
 import { Context } from 'components/Context'
-import { CONGRATS, GAME_OVER } from 'router'
 import Scenario from 'components/Scenario'
 import Car from 'components/Car'
 import Speed from 'components/Speed'
@@ -8,33 +7,40 @@ import Duration from 'components/Duration'
 import Laps from 'components/Laps'
 import PauseScreen from 'components/PauseScreen'
 import Stone from 'components/Stone'
+import useControls from 'pages/Game/useControls'
+import useCollision from 'pages/Game/useCollision'
 import useBehavior from './useBehavior'
-import useCollision from './useCollision'
-import useControls from './useControls'
 import { StyledWrapper } from './styled'
 import { MAX_LAPS, STATUS_STONE_HIDE } from './constants'
 
 const Game = () => {
   const scene = useRef(null)
-  const context = useContext(Context)
-
-  const handleFinish = ({ speed, duration }) => {
-    context.actions.savegame({ speed, duration })
-    context.actions.setCurrentRoute(CONGRATS)
-  }
+  const { actions: { savegame, gameover }} = useContext(Context)
 
   const handleGameOver = () => {
     setTimeout(() => {
-      context.actions.setCurrentRoute(GAME_OVER)
+      gameover();
     }, 1000)
   }
 
-  const { state, setPaused, startTurbo } = useBehavior({ handleFinish })
-  const { speed, duration, lap, turbo, paused } = state
+  const {
+    state: {
+      speed, duration, lap, turbo, paused
+    },
+    setPaused,
+    startTurbo
+  } = useBehavior({ handleFinish: savegame })
 
-  const collision = useCollision({ paused, handleGameOver })
-  const { stoneStatus, carPosition, stonePosition, collided } = collision.state
-  const { moveLeftPosition, moveMiddlePosition, moveRightPosition, moveLeft, moveRight } = collision
+  const {
+    state: {
+      stoneStatus, carPosition, stonePosition, collided
+    },
+    moveLeftPosition,
+    moveMiddlePosition,
+    moveRightPosition,
+    moveLeft,
+    moveRight
+  } = useCollision({ paused, handleGameOver })
 
   useControls({ scene, paused, setPaused, startTurbo, moveLeftPosition, moveMiddlePosition, moveRightPosition, moveLeft, moveRight })
 

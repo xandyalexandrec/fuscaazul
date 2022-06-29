@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react'
 
-const useCountdown = ({ initialValue = 3, handleFinish }) => {
+const ONE_SECOND_IN_MS = 1000;
+
+const useCountdown = ({ initialValue = 3, onFinish }) => {
   const [counter, setCounter] = useState(initialValue)
 
   useEffect(() => {
-    if (counter > 0) {
-      const timeout = setTimeout(() => setCounter(counter - 1), 1000)
-      return () => clearTimeout(timeout)
-    } else {
-      handleFinish()
-    }
-  }, [counter, handleFinish])
+    counter > 0
+      ? setTimeout(() => setCounter(time => time - 1), ONE_SECOND_IN_MS)
+      : onFinish()
+  }, [counter, onFinish])
 
   return counter
 }
